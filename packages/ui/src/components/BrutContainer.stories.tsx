@@ -6,7 +6,6 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Layout/Container",
   component: BrutContainer,
-  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {

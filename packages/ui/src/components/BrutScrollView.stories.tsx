@@ -6,7 +6,6 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Layout/ScrollView",
   component: BrutScrollView,
-  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: {

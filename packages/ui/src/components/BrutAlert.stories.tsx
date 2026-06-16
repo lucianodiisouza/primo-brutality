@@ -5,7 +5,6 @@ import { BrutAlert } from "./BrutAlert";
 const meta = {
   title: "Primitives/Alert",
   component: BrutAlert,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

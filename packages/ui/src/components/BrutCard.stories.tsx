@@ -6,7 +6,6 @@ import { BrutHeading, BrutText } from "./BrutText";
 const meta = {
   title: "Primitives/Card",
   component: BrutCard,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

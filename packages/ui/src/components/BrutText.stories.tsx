@@ -5,7 +5,6 @@ import { BrutText, BrutHeading } from "./BrutText";
 const meta = {
   title: "Primitives/Text",
   component: BrutText,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

@@ -4,7 +4,6 @@ import { BrutInput } from "./BrutInput";
 const meta = {
   title: "Primitives/Input",
   component: BrutInput,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

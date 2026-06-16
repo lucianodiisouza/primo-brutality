@@ -6,7 +6,6 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Overlays/PinInput",
   component: BrutPinInput,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

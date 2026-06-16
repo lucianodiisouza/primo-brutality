@@ -5,7 +5,6 @@ import { BrutButton } from "./BrutButton";
 const meta = {
   title: "Primitives/Button",
   component: BrutButton,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

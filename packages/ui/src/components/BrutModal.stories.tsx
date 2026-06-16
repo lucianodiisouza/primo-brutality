@@ -8,7 +8,6 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Overlays/Modal",
   component: BrutModal,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {

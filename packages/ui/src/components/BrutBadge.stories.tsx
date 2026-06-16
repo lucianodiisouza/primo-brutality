@@ -5,7 +5,6 @@ import { BrutBadge } from "./BrutBadge";
 const meta = {
   title: "Primitives/Badge",
   component: BrutBadge,
-  tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
