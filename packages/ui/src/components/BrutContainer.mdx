@@ -1,0 +1,22 @@
+import { Meta, Canvas, Controls, Stories } from "@storybook/addon-docs/blocks";
+import * as BrutContainerStories from "./BrutContainer.stories";
+
+<Meta of={BrutContainerStories} />
+
+# BrutContainer
+
+Full-screen cream page wrapper with padding and optional max-width column.
+
+## Usage
+
+```tsx
+import { BrutContainer } from "@primo-brutality/ui";
+
+<BrutContainer maxWidth="md" padding="lg">
+  {children}
+</BrutContainer>
+```
+
+<Canvas of={BrutContainerStories.CenteredColumn} />
+
+<Stories />
