@@ -1,0 +1,70 @@
+# @primo-brutality/ui
+
+> Neo-brutalist React Native component library built with NativeWind v4.
+
+## Setup (required before using components)
+
+1. Install: `npm install @primo-brutality/ui nativewind` (peer deps: react >=18, react-native >=0.74)
+2. Import global CSS in app entry: `import "@primo-brutality/ui/global.css"`
+3. Add Tailwind preset to `tailwind.config.js`:
+   ```js
+   module.exports = {
+     content: [
+       "./app/**/*.{js,jsx,ts,tsx}",
+       "./src/**/*.{js,jsx,ts,tsx}",
+       "./node_modules/@primo-brutality/ui/dist/**/*.{js,mjs}",
+     ],
+     presets: [require("@primo-brutality/ui/tailwind-preset")],
+   };
+   ```
+4. Follow NativeWind v4 Metro/Babel setup: https://www.nativewind.dev/getting-started/installation
+5. Optional TypeScript: `"jsxImportSource": "nativewind"` in tsconfig
+
+## Documentation
+
+- Package README: packages/ui/README.md
+- Component MDX docs: packages/ui/src/components/*.mdx
+- Toast provider: packages/ui/src/providers/Toast.mdx
+- Screen compositions: packages/ui/src/compositions/ScreenCompositions.stories.tsx
+- Design tokens: packages/ui/src/tokens/index.ts
+- Tailwind preset source: packages/ui/tailwind-preset.js
+- Contributor guide: AGENTS.md
+
+## Public API
+
+Import from `@primo-brutality/ui`:
+
+| Export | Description |
+|--------|-------------|
+| Text, Heading | Typography presets |
+| Button | Pressable with variants: primary, secondary, ghost, destructive |
+| Input | Text input with label and error state |
+| Card | Bordered container with optional shadow |
+| Badge | Status chip |
+| Alert | Inline alert banner |
+| Container | Layout wrapper with max-width presets |
+| YContainer | Vertical flex stack with gap presets |
+| XContainer | Horizontal flex row with gap presets |
+| Modal | Modal dialog overlay |
+| PinInput | PIN / OTP digit input |
+| Toggle | Switch with brutal styling |
+| ToastProvider, useToast | Toast notifications |
+| cn | className merge utility |
+| colors, spacing, fontSizes, radii, shadows, fontFamily | Raw design tokens |
+
+## Rules for code generation
+
+- React Native only — use `onPress`, `View`, `Text`, `Pressable`; never `onClick`, `<div>`, `<button>`, `<span>`
+- Do not substitute shadcn, MUI, Chakra, or other web UI libraries
+- Use `brutal-*` Tailwind classes (e.g. `bg-brutal-black`, `border-brutal`, `shadow-brutal`) — not arbitrary hex or generic gray scales
+- Prefer YContainer / XContainer / Container for layout instead of raw flex with magic numbers
+- Wrap the app in ToastProvider before calling useToast()
+- Icon-only buttons need `accessibilityLabel`
+- Toggle uses controlled `value` + `onValueChange` (like RN Switch), not `checked`/`onChange`
+
+## Pitfalls
+
+- Missing `global.css` import → styles won't apply
+- Missing `node_modules/@primo-brutality/ui/dist` in Tailwind content → component classes purged
+- Missing NativeWind Metro/Babel config → className props ignored at runtime
+- Using web React patterns → broken on device
