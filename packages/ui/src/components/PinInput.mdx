@@ -1,0 +1,27 @@
+import { Meta, Canvas, Stories } from "@storybook/addon-docs/blocks";
+import * as PinInputStories from "./PinInput.stories";
+
+<Meta of={PinInputStories} />
+
+# PinInput
+
+OTP / PIN entry with visible digit cells and a hidden numeric input.
+
+## Usage
+
+```tsx
+import { PinInput } from "@primo-brutality/ui";
+
+const [code, setCode] = useState("");
+
+<PinInput
+  length={6}
+  value={code}
+  onChange={setCode}
+  onComplete={(pin) => verify(pin)}
+/>
+```
+
+<Canvas of={PinInputStories.SixDigit} />
+
+<Stories />

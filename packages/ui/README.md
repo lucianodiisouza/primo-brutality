@@ -109,34 +109,34 @@ Add NativeWind types to your `tsconfig.json`:
 ## Usage
 
 ```tsx
-import { BrutButton, BrutCard, BrutText } from "@primo-brutality/ui";
+import { Button, Card, Text } from "@primo-brutality/ui";
 
 export function Example() {
   return (
-    <BrutCard>
-      <BrutText size="lg" weight="bold">
+    <Card>
+      <Text size="lg" weight="bold">
         Welcome
-      </BrutText>
-      <BrutButton variant="primary" onPress={() => {}}>
+      </Text>
+      <Button variant="primary" onPress={() => {}}>
         Get started
-      </BrutButton>
-    </BrutCard>
+      </Button>
+    </Card>
   );
 }
 ```
 
 ### Toast notifications
 
-Wrap your app with `BrutToastProvider` and call `useToast()` from any child:
+Wrap your app with `ToastProvider` and call `useToast()` from any child:
 
 ```tsx
-import { BrutToastProvider, BrutButton, useToast } from "@primo-brutality/ui";
+import { ToastProvider, Button, useToast } from "@primo-brutality/ui";
 
 function App() {
   return (
-    <BrutToastProvider>
+    <ToastProvider>
       <Screen />
-    </BrutToastProvider>
+    </ToastProvider>
   );
 }
 
@@ -144,9 +144,9 @@ function Screen() {
   const { show } = useToast();
 
   return (
-    <BrutButton onPress={() => show({ message: "Saved!", variant: "success" })}>
+    <Button onPress={() => show({ message: "Saved!", variant: "success" })}>
       Save
-    </BrutButton>
+    </Button>
   );
 }
 ```
@@ -155,19 +155,19 @@ function Screen() {
 
 | Component          | Description                                      |
 | ------------------ | ------------------------------------------------ |
-| `BrutText`         | Typography with size, weight, and color presets  |
-| `BrutButton`       | Pressable button with variants and hard shadow   |
-| `BrutInput`        | Text input with brutal border styling            |
-| `BrutCard`         | Bordered container with optional shadow          |
-| `BrutBadge`        | Small label / status chip                        |
-| `BrutAlert`        | Inline alert banner                              |
-| `BrutContainer`    | Layout wrapper with max-width presets            |
-| `BrutYContainer`   | Vertical stack with token-based gap presets      |
-| `BrutXContainer`   | Horizontal row with token-based gap presets      |
-| `BrutScrollView`   | Scrollable container with brutal styling         |
-| `BrutModal`        | Modal dialog overlay                             |
-| `BrutPinInput`     | PIN / OTP digit input                            |
-| `BrutToastProvider`| Toast context provider                           |
+| `Text`         | Typography with size, weight, and color presets  |
+| `Button`       | Pressable button with variants and hard shadow   |
+| `Input`        | Text input with brutal border styling            |
+| `Card`         | Bordered container with optional shadow          |
+| `Badge`        | Small label / status chip                        |
+| `Alert`        | Inline alert banner                              |
+| `Container`    | Layout wrapper with max-width presets            |
+| `YContainer`   | Vertical stack with token-based gap presets      |
+| `XContainer`   | Horizontal row with token-based gap presets      |
+| `ScrollView`   | Scrollable container with brutal styling         |
+| `Modal`        | Modal dialog overlay                             |
+| `PinInput`     | PIN / OTP digit input                            |
+| `ToastProvider`| Toast context provider                           |
 | `useToast`         | Hook to show and dismiss toasts                  |
 
 ## Design tokens

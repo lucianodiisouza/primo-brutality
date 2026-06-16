@@ -1,0 +1,35 @@
+import { Meta, Canvas, Stories } from "@storybook/addon-docs/blocks";
+import * as ToastStories from "../components/Toast.stories";
+
+<Meta of={ToastStories} />
+
+# Toast
+
+Transient feedback via `ToastProvider` and the `useToast()` hook.
+
+## Setup
+
+```tsx
+import { ToastProvider, useToast } from "@primo-brutality/ui";
+
+function App() {
+  return (
+    <ToastProvider>
+      <Screen />
+    </ToastProvider>
+  );
+}
+
+function Screen() {
+  const { show } = useToast();
+  return (
+    <Button onPress={() => show({ message: "Saved!", variant: "success" })}>
+      Save
+    </Button>
+  );
+}
+```
+
+<Canvas of={ToastStories.Success} />
+
+<Stories />

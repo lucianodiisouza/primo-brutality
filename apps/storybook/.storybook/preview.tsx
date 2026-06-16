@@ -1,8 +1,8 @@
 import type { Preview } from "@storybook/react-native-web-vite";
 import { View } from "react-native";
 import {
-  BrutContainer,
-  BrutToastProvider,
+  Container,
+  ToastProvider,
 } from "@primo-brutality/ui";
 import "../../../packages/ui/global.css";
 
@@ -21,15 +21,15 @@ const preview: Preview = {
       const content = <Story />;
 
       if (parameters.disableContainerDecorator) {
-        return <BrutToastProvider>{content}</BrutToastProvider>;
+        return <ToastProvider>{content}</ToastProvider>;
       }
 
       return (
-        <BrutToastProvider>
-          <BrutContainer padding="lg" className="min-h-screen">
+        <ToastProvider>
+          <Container padding="lg" className="min-h-screen">
             <View className="w-full py-6">{content}</View>
-          </BrutContainer>
-        </BrutToastProvider>
+          </Container>
+        </ToastProvider>
       );
     },
   ],

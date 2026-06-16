@@ -1,0 +1,26 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as TextStories from "./Text.stories";
+
+<Meta of={TextStories} />
+
+# Text & Heading
+
+Typography primitives with brutal font family, size/weight presets, and semantic
+colors. Use `Heading` for page titles and section headers.
+
+## Usage
+
+```tsx
+import { Text, Heading } from "@primo-brutality/ui";
+
+<Heading level={2}>Section title</Heading>
+<Text color="muted">Supporting copy</Text>
+```
+
+<Primary />
+
+<Controls />
+
+<Canvas of={TextStories.Colors} />
+
+<Stories />

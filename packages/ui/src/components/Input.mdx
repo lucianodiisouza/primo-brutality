@@ -1,0 +1,26 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as InputStories from "./Input.stories";
+
+<Meta of={InputStories} />
+
+# Input
+
+Text field with brutal border styling, optional label, hint, and error message.
+
+## Usage
+
+```tsx
+import { Input } from "@primo-brutality/ui";
+
+<Input
+  label="Email"
+  placeholder="you@example.com"
+  hint="We never share your email."
+/>
+```
+
+<Primary />
+
+<Controls />
+
+<Stories />

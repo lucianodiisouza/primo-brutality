@@ -1,0 +1,31 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as ToggleStories from "./Toggle.stories";
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+On/off switch for settings screens, feature flags, and preference rows.
+
+## Usage
+
+```tsx
+import { useState } from "react";
+import { Toggle } from "@primo-brutality/ui";
+
+const [enabled, setEnabled] = useState(false);
+
+<Toggle
+  value={enabled}
+  onValueChange={setEnabled}
+  accessibilityLabel="Push notifications"
+/>
+```
+
+<Primary />
+
+<Controls />
+
+<Canvas of={ToggleStories.SettingsRow} />
+
+<Stories />

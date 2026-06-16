@@ -1,0 +1,24 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as AlertStories from "./Alert.stories";
+
+<Meta of={AlertStories} />
+
+# Alert
+
+Inline feedback banner with info, success, warning, and error variants.
+
+## Usage
+
+```tsx
+import { Alert } from "@primo-brutality/ui";
+
+<Alert variant="success" title="Saved" message="Profile updated." />
+```
+
+<Primary />
+
+<Controls />
+
+<Canvas of={AlertStories.AllVariants} />
+
+<Stories />

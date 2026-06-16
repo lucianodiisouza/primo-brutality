@@ -1,0 +1,23 @@
+import { Meta, Canvas, Stories } from "@storybook/addon-docs/blocks";
+import * as ModalStories from "./Modal.stories";
+
+<Meta of={ModalStories} />
+
+# Modal
+
+Centered overlay dialog. Backdrop press dismisses; inner panel stops
+propagation.
+
+## Usage
+
+```tsx
+import { Modal } from "@primo-brutality/ui";
+
+<Modal visible={open} onClose={() => setOpen(false)} title="Confirm">
+  <Text>Are you sure?</Text>
+</Modal>
+```
+
+<Canvas of={ModalStories.Interactive} />
+
+<Stories />

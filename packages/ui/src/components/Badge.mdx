@@ -1,0 +1,24 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as BadgeStories from "./Badge.stories";
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Compact status pill for labels like "New", "Beta", or category tags.
+
+## Usage
+
+```tsx
+import { Badge } from "@primo-brutality/ui";
+
+<Badge label="New" variant="pink" />
+```
+
+<Primary />
+
+<Controls />
+
+<Canvas of={BadgeStories.AllVariants} />
+
+<Stories />

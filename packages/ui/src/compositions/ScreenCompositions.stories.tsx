@@ -1,20 +1,20 @@
 import { useState, type ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { View } from "react-native";
-import { BrutAlert } from "../components/BrutAlert";
-import { BrutBadge } from "../components/BrutBadge";
-import { BrutButton } from "../components/BrutButton";
-import { BrutCard } from "../components/BrutCard";
-import { BrutContainer } from "../components/BrutContainer";
-import { BrutInput } from "../components/BrutInput";
-import { BrutModal } from "../components/BrutModal";
-import { BrutPinInput } from "../components/BrutPinInput";
-import { BrutScrollView } from "../components/BrutScrollView";
-import { BrutHeading, BrutText } from "../components/BrutText";
-import { BrutToggle } from "../components/BrutToggle";
-import { BrutXContainer } from "../components/BrutXContainer";
-import { BrutYContainer } from "../components/BrutYContainer";
-import { useToast } from "../providers/BrutToastProvider";
+import { Alert } from "../components/Alert";
+import { Badge } from "../components/Badge";
+import { Button } from "../components/Button";
+import { Card } from "../components/Card";
+import { Container } from "../components/Container";
+import { Input } from "../components/Input";
+import { Modal } from "../components/Modal";
+import { PinInput } from "../components/PinInput";
+import { ScrollView } from "../components/ScrollView";
+import { Heading, Text } from "../components/Text";
+import { Toggle } from "../components/Toggle";
+import { XContainer } from "../components/XContainer";
+import { YContainer } from "../components/YContainer";
+import { useToast } from "../providers/ToastProvider";
 
 const compositionParameters = {
   disableContainerDecorator: true,
@@ -47,11 +47,11 @@ type Story = StoryObj<typeof meta>;
 
 function PhoneFrame({ children }: { children: ReactNode }) {
   return (
-    <BrutContainer padding="none" className="min-h-screen items-center bg-brutal-gray py-8">
+    <Container padding="none" className="min-h-screen items-center bg-brutal-gray py-8">
       <View className="w-full max-w-[390px] overflow-hidden rounded-brutal-lg border-brutal border-brutal-black bg-brutal-cream shadow-brutal">
         {children}
       </View>
-    </BrutContainer>
+    </Container>
   );
 }
 
@@ -59,42 +59,42 @@ export const Login: Story = {
   parameters: compositionParameters,
   render: () => (
     <PhoneFrame>
-      <BrutContainer maxWidth="full" padding="lg" className="min-h-[640px] justify-center">
-        <BrutYContainer gap="lg" fullWidth>
-          <BrutYContainer gap="sm">
-            <BrutBadge label="Welcome back" variant="pink" />
-            <BrutHeading level={1}>Sign in</BrutHeading>
-            <BrutText color="muted">
+      <Container maxWidth="full" padding="lg" className="min-h-[640px] justify-center">
+        <YContainer gap="lg" fullWidth>
+          <YContainer gap="sm">
+            <Badge label="Welcome back" variant="pink" />
+            <Heading level={1}>Sign in</Heading>
+            <Text color="muted">
               Enter your credentials to access your dashboard.
-            </BrutText>
-          </BrutYContainer>
+            </Text>
+          </YContainer>
 
-          <BrutYContainer gap="md">
-            <BrutInput
+          <YContainer gap="md">
+            <Input
               label="Email"
               placeholder="you@example.com"
               keyboardType="email-address"
               autoCapitalize="none"
             />
-            <BrutInput
+            <Input
               label="Password"
               placeholder="••••••••"
               secureTextEntry
             />
-          </BrutYContainer>
+          </YContainer>
 
-          <BrutAlert
+          <Alert
             variant="info"
             title="New login device?"
             message="We'll send a verification code if we don't recognize this browser."
           />
 
-          <BrutYContainer gap="sm">
-            <BrutButton size="lg">Sign in</BrutButton>
-            <BrutButton variant="ghost">Forgot password?</BrutButton>
-          </BrutYContainer>
-        </BrutYContainer>
-      </BrutContainer>
+          <YContainer gap="sm">
+            <Button size="lg">Sign in</Button>
+            <Button variant="ghost">Forgot password?</Button>
+          </YContainer>
+        </YContainer>
+      </Container>
     </PhoneFrame>
   ),
 };
@@ -103,78 +103,78 @@ export const Dashboard: Story = {
   parameters: compositionParameters,
   render: () => (
     <PhoneFrame>
-      <BrutScrollView contentPadding="lg" className="min-h-[720px]">
-        <BrutYContainer gap="lg" fullWidth>
-          <BrutXContainer justify="between" align="start" fullWidth>
-            <BrutYContainer gap="xs" className="flex-1">
-              <BrutText size="sm" color="muted">
+      <ScrollView contentPadding="lg" className="min-h-[720px]">
+        <YContainer gap="lg" fullWidth>
+          <XContainer justify="between" align="start" fullWidth>
+            <YContainer gap="xs" className="flex-1">
+              <Text size="sm" color="muted">
                 Good morning
-              </BrutText>
-              <BrutHeading level={2}>Alex Rivera</BrutHeading>
-            </BrutYContainer>
-            <BrutBadge label="Pro" variant="yellow" />
-          </BrutXContainer>
+              </Text>
+              <Heading level={2}>Alex Rivera</Heading>
+            </YContainer>
+            <Badge label="Pro" variant="yellow" />
+          </XContainer>
 
-          <BrutAlert
+          <Alert
             variant="success"
             title="Payment received"
             message="Your latest sale just landed — $248.00"
           />
 
-          <BrutYContainer gap="sm">
-            <BrutText weight="semibold">Overview</BrutText>
-            <BrutXContainer gap="md" fullWidth>
-              <BrutCard padding="md" className="flex-1">
-                <BrutText size="sm" color="muted">
+          <YContainer gap="sm">
+            <Text weight="semibold">Overview</Text>
+            <XContainer gap="md" fullWidth>
+              <Card padding="md" className="flex-1">
+                <Text size="sm" color="muted">
                   Revenue
-                </BrutText>
-                <BrutHeading level={3}>$12.4k</BrutHeading>
-                <BrutBadge label="+18%" variant="green" className="mt-2" />
-              </BrutCard>
-              <BrutCard padding="md" className="flex-1" variant="cream">
-                <BrutText size="sm" color="muted">
+                </Text>
+                <Heading level={3}>$12.4k</Heading>
+                <Badge label="+18%" variant="green" className="mt-2" />
+              </Card>
+              <Card padding="md" className="flex-1" variant="cream">
+                <Text size="sm" color="muted">
                   Orders
-                </BrutText>
-                <BrutHeading level={3}>86</BrutHeading>
-                <BrutBadge label="12 pending" variant="outline" className="mt-2" />
-              </BrutCard>
-            </BrutXContainer>
-          </BrutYContainer>
+                </Text>
+                <Heading level={3}>86</Heading>
+                <Badge label="12 pending" variant="outline" className="mt-2" />
+              </Card>
+            </XContainer>
+          </YContainer>
 
-          <BrutYContainer gap="sm">
-            <BrutXContainer justify="between" align="center" fullWidth>
-              <BrutText weight="semibold">Recent activity</BrutText>
-              <BrutButton variant="ghost" size="sm">
+          <YContainer gap="sm">
+            <XContainer justify="between" align="center" fullWidth>
+              <Text weight="semibold">Recent activity</Text>
+              <Button variant="ghost" size="sm">
                 View all
-              </BrutButton>
-            </BrutXContainer>
+              </Button>
+            </XContainer>
 
-            <BrutCard padding="md">
-              <BrutXContainer justify="between" align="center" fullWidth>
-                <BrutYContainer gap="xs">
-                  <BrutText weight="semibold">New order #4821</BrutText>
-                  <BrutText size="sm" color="muted">
+            <Card padding="md">
+              <XContainer justify="between" align="center" fullWidth>
+                <YContainer gap="xs">
+                  <Text weight="semibold">New order #4821</Text>
+                  <Text size="sm" color="muted">
                     2 items · 5 min ago
-                  </BrutText>
-                </BrutYContainer>
-                <BrutBadge label="New" variant="pink" />
-              </BrutXContainer>
-            </BrutCard>
+                  </Text>
+                </YContainer>
+                <Badge label="New" variant="pink" />
+              </XContainer>
+            </Card>
 
-            <BrutCard padding="md" variant="cream" shadow="soft">
-              <BrutXContainer justify="between" align="center" fullWidth>
-                <BrutYContainer gap="xs">
-                  <BrutText weight="semibold">Shipment delivered</BrutText>
-                  <BrutText size="sm" color="muted">
+            <Card padding="md" variant="cream" shadow="soft">
+              <XContainer justify="between" align="center" fullWidth>
+                <YContainer gap="xs">
+                  <Text weight="semibold">Shipment delivered</Text>
+                  <Text size="sm" color="muted">
                     Order #4798 · yesterday
-                  </BrutText>
-                </BrutYContainer>
-                <BrutBadge label="Done" variant="green" />
-              </BrutXContainer>
-            </BrutCard>
-          </BrutYContainer>
-        </BrutYContainer>
-      </BrutScrollView>
+                  </Text>
+                </YContainer>
+                <Badge label="Done" variant="green" />
+              </XContainer>
+            </Card>
+          </YContainer>
+        </YContainer>
+      </ScrollView>
     </PhoneFrame>
   ),
 };
@@ -187,62 +187,62 @@ export const Settings: Story = {
 
     return (
       <PhoneFrame>
-        <BrutScrollView contentPadding="lg" className="min-h-[720px]">
-          <BrutYContainer gap="lg" fullWidth>
-            <BrutYContainer gap="sm">
-              <BrutHeading level={2}>Settings</BrutHeading>
-              <BrutText color="muted">
+        <ScrollView contentPadding="lg" className="min-h-[720px]">
+          <YContainer gap="lg" fullWidth>
+            <YContainer gap="sm">
+              <Heading level={2}>Settings</Heading>
+              <Text color="muted">
                 Manage your profile and account preferences.
-              </BrutText>
-            </BrutYContainer>
+              </Text>
+            </YContainer>
 
-            <BrutCard padding="lg">
-              <BrutHeading level={4}>Profile</BrutHeading>
-              <BrutYContainer gap="md" className="mt-4">
-                <BrutInput label="Display name" defaultValue="Alex Rivera" />
-                <BrutInput
+            <Card padding="lg">
+              <Heading level={4}>Profile</Heading>
+              <YContainer gap="md" className="mt-4">
+                <Input label="Display name" defaultValue="Alex Rivera" />
+                <Input
                   label="Email"
                   defaultValue="alex@example.com"
                   keyboardType="email-address"
                   autoCapitalize="none"
                 />
-                <BrutInput
+                <Input
                   label="Bio"
                   placeholder="Tell us about yourself"
                   defaultValue="Designer & maker of brutal things."
                   multiline
                 />
-              </BrutYContainer>
-            </BrutCard>
+              </YContainer>
+            </Card>
 
-            <BrutCard padding="lg" variant="cream">
-              <BrutHeading level={4}>Notifications</BrutHeading>
-              <BrutYContainer gap="sm" className="mt-4">
-                <BrutXContainer justify="between" align="center" fullWidth>
-                  <BrutText>Order updates</BrutText>
-                  <BrutToggle
+            <Card padding="lg" variant="cream">
+              <Heading level={4}>Notifications</Heading>
+              <YContainer gap="sm" className="mt-4">
+                <XContainer justify="between" align="center" fullWidth>
+                  <Text>Order updates</Text>
+                  <Toggle
                     value={orderUpdates}
                     onValueChange={setOrderUpdates}
                     accessibilityLabel="Order updates"
                   />
-                </BrutXContainer>
-                <BrutXContainer justify="between" align="center" fullWidth>
-                  <BrutText>Marketing emails</BrutText>
-                  <BrutToggle
+                </XContainer>
+                <XContainer justify="between" align="center" fullWidth>
+                  <Text>Marketing emails</Text>
+                  <Toggle
                     value={marketing}
                     onValueChange={setMarketing}
                     accessibilityLabel="Marketing emails"
                   />
-                </BrutXContainer>
-              </BrutYContainer>
-            </BrutCard>
+                </XContainer>
+              </YContainer>
+            </Card>
 
-            <BrutYContainer gap="sm">
-              <BrutButton size="lg">Save changes</BrutButton>
-              <BrutButton variant="destructive">Delete account</BrutButton>
-            </BrutYContainer>
-          </BrutYContainer>
-        </BrutScrollView>
+            <YContainer gap="sm">
+              <Button size="lg">Save changes</Button>
+              <Button variant="destructive">Delete account</Button>
+            </YContainer>
+          </YContainer>
+        </ScrollView>
       </PhoneFrame>
     );
   },
@@ -255,42 +255,42 @@ export const OtpVerification: Story = {
 
     return (
       <PhoneFrame>
-        <BrutContainer
+        <Container
           maxWidth="full"
           padding="lg"
           centered
           className="min-h-[640px]"
         >
-          <BrutYContainer gap="lg" fullWidth>
-            <BrutYContainer gap="sm" align="center">
-              <BrutBadge label="Step 2 of 2" variant="outline" />
-              <BrutHeading level={2}>Enter code</BrutHeading>
-              <BrutText color="muted" className="text-center">
+          <YContainer gap="lg" fullWidth>
+            <YContainer gap="sm" align="center">
+              <Badge label="Step 2 of 2" variant="outline" />
+              <Heading level={2}>Enter code</Heading>
+              <Text color="muted" className="text-center">
                 We sent a 6-digit code to alex@example.com
-              </BrutText>
-            </BrutYContainer>
+              </Text>
+            </YContainer>
 
-            <BrutPinInput
+            <PinInput
               length={6}
               value={code}
               onChange={setCode}
               onComplete={() => {}}
             />
 
-            <BrutAlert
+            <Alert
               variant="warning"
               title="Code expires soon"
               message="Request a new code if you don't receive it within 2 minutes."
             />
 
-            <BrutYContainer gap="sm">
-              <BrutButton size="lg" disabled={code.length < 6}>
+            <YContainer gap="sm">
+              <Button size="lg" disabled={code.length < 6}>
                 Verify
-              </BrutButton>
-              <BrutButton variant="secondary">Resend code</BrutButton>
-            </BrutYContainer>
-          </BrutYContainer>
-        </BrutContainer>
+              </Button>
+              <Button variant="secondary">Resend code</Button>
+            </YContainer>
+          </YContainer>
+        </Container>
       </PhoneFrame>
     );
   },
@@ -302,72 +302,72 @@ function CheckoutScreen() {
 
   return (
     <PhoneFrame>
-      <BrutScrollView contentPadding="lg" className="min-h-[720px]">
-        <BrutYContainer gap="lg" fullWidth>
-          <BrutYContainer gap="sm">
-            <BrutHeading level={2}>Checkout</BrutHeading>
-            <BrutText color="muted">Review your order before paying.</BrutText>
-          </BrutYContainer>
+      <ScrollView contentPadding="lg" className="min-h-[720px]">
+        <YContainer gap="lg" fullWidth>
+          <YContainer gap="sm">
+            <Heading level={2}>Checkout</Heading>
+            <Text color="muted">Review your order before paying.</Text>
+          </YContainer>
 
-          <BrutCard padding="md">
-            <BrutXContainer justify="between" align="start" gap="md" fullWidth>
-              <BrutYContainer gap="xs" className="flex-1">
-                <BrutText weight="semibold">Brutal Hoodie</BrutText>
-                <BrutText size="sm" color="muted">
+          <Card padding="md">
+            <XContainer justify="between" align="start" gap="md" fullWidth>
+              <YContainer gap="xs" className="flex-1">
+                <Text weight="semibold">Brutal Hoodie</Text>
+                <Text size="sm" color="muted">
                   Size M · Black
-                </BrutText>
-              </BrutYContainer>
-              <BrutText weight="bold">$89.00</BrutText>
-            </BrutXContainer>
-          </BrutCard>
+                </Text>
+              </YContainer>
+              <Text weight="bold">$89.00</Text>
+            </XContainer>
+          </Card>
 
-          <BrutCard padding="md" variant="cream">
-            <BrutXContainer justify="between" align="start" gap="md" fullWidth>
-              <BrutYContainer gap="xs" className="flex-1">
-                <BrutText weight="semibold">Sticker Pack</BrutText>
-                <BrutText size="sm" color="muted">
+          <Card padding="md" variant="cream">
+            <XContainer justify="between" align="start" gap="md" fullWidth>
+              <YContainer gap="xs" className="flex-1">
+                <Text weight="semibold">Sticker Pack</Text>
+                <Text size="sm" color="muted">
                   12 neo-brutalist stickers
-                </BrutText>
-              </BrutYContainer>
-              <BrutText weight="bold">$14.00</BrutText>
-            </BrutXContainer>
-          </BrutCard>
+                </Text>
+              </YContainer>
+              <Text weight="bold">$14.00</Text>
+            </XContainer>
+          </Card>
 
-          <BrutInput
+          <Input
             label="Promo code"
             placeholder="BRUTAL10"
             hint="Save 10% on your first order."
           />
 
-          <BrutCard padding="md" shadow="soft">
-            <BrutXContainer justify="between" align="center" fullWidth>
-              <BrutText weight="semibold">Total</BrutText>
-              <BrutHeading level={3}>$103.00</BrutHeading>
-            </BrutXContainer>
-          </BrutCard>
+          <Card padding="md" shadow="soft">
+            <XContainer justify="between" align="center" fullWidth>
+              <Text weight="semibold">Total</Text>
+              <Heading level={3}>$103.00</Heading>
+            </XContainer>
+          </Card>
 
-          <BrutButton
+          <Button
             size="lg"
             onPress={() => setConfirmOpen(true)}
           >
             Place order
-          </BrutButton>
-        </BrutYContainer>
-      </BrutScrollView>
+          </Button>
+        </YContainer>
+      </ScrollView>
 
-      <BrutModal
+      <Modal
         visible={confirmOpen}
         onClose={() => setConfirmOpen(false)}
         title="Confirm order"
         footer={
-          <BrutXContainer gap="md">
-            <BrutButton
+          <XContainer gap="md">
+            <Button
               variant="secondary"
               onPress={() => setConfirmOpen(false)}
             >
               Cancel
-            </BrutButton>
-            <BrutButton
+            </Button>
+            <Button
               onPress={() => {
                 setConfirmOpen(false);
                 show({
@@ -378,14 +378,14 @@ function CheckoutScreen() {
               }}
             >
               Pay $103.00
-            </BrutButton>
-          </BrutXContainer>
+            </Button>
+          </XContainer>
         }
       >
-        <BrutText color="muted">
+        <Text color="muted">
           Your card ending in 4242 will be charged. This action cannot be undone.
-        </BrutText>
-      </BrutModal>
+        </Text>
+      </Modal>
     </PhoneFrame>
   );
 }

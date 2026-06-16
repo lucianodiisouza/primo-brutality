@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Pressable action control with neo-brutalist styling: thick borders, optional hard
+shadow, and a pressed state that collapses the shadow.
+
+Use **primary** for the main action, **secondary** for alternates, **ghost** for
+low-emphasis links, and **destructive** for irreversible actions.
+
+## Usage
+
+```tsx
+import { Button } from "@primo-brutality/ui";
+
+export function Example() {
+  return (
+    <Button variant="primary" onPress={() => {}}>
+      Continue
+    </Button>
+  );
+}
+```
+
+### With icons
+
+```tsx
+import { Button } from "@primo-brutality/ui";
+import { PlusIcon } from "your-icon-library";
+
+// Icon + label
+<Button icon={<PlusIcon size={16} />} iconPosition="left">
+  Add item
+</Button>
+
+// Icon only — set accessibilityLabel
+<Button
+  icon={<PlusIcon size={20} />}
+  iconPosition="middle"
+  accessibilityLabel="Add item"
+/>
+```
+
+## Playground
+
+<Primary />
+
+<Controls />
+
+## Variants
+
+<Canvas of={ButtonStories.AllVariants} />
+
+## Sizes
+
+<Canvas of={ButtonStories.Sizes} />
+
+## Icons
+
+<Canvas of={ButtonStories.IconPositions} />
+
+## All stories
+
+<Stories />
