@@ -2,14 +2,36 @@ import { View, TextInput, type TextInputProps } from "react-native";
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
 
+/**
+ * Props for {@link BrutInput}.
+ *
+ * Extends React Native `TextInputProps` with label, hint, and error slots.
+ */
 export interface BrutInputProps extends TextInputProps {
+  /** Optional label rendered above the field. */
   label?: string;
+  /** Validation message — turns the border red when set. */
   error?: string;
+  /** Helper copy shown below the field when there is no error. */
   hint?: string;
+  /** NativeWind classes on the outer wrapper. */
   containerClassName?: string;
+  /** NativeWind classes on the `TextInput`. */
   inputClassName?: string;
 }
 
+/**
+ * Text field with brutal border, optional label, hint, and error message.
+ *
+ * @example
+ * ```tsx
+ * <BrutInput
+ *   label="Email"
+ *   placeholder="you@example.com"
+ *   hint="We never share your email."
+ * />
+ * ```
+ */
 export function BrutInput({
   label,
   error,
