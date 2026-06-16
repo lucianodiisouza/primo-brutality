@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsxImportSource": "nativewind"
+  },
+  "include": [
+    ".storybook/**/*",
+    "../../packages/ui/src/**/*.stories.tsx"
+  ]
+}
