@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Pressable, View, type PressableProps } from "react-native";
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
+import {
+  brutalFlatEdgeClasses,
+  brutalRaisedEdgeClasses,
+  brutalRaisedEdgePressedClasses,
+} from "../utils/brutal-border";
 
 /** Visual style preset for {@link BrutButton}. */
 export type BrutButtonVariant = "primary" | "secondary" | "ghost" | "destructive";
@@ -13,12 +18,10 @@ export type BrutButtonSize = "sm" | "md" | "lg";
 export type BrutButtonIconPosition = "left" | "middle" | "right";
 
 const variantClasses: Record<BrutButtonVariant, string> = {
-  primary: "bg-brutal-black border-brutal border-brutal-black active:shadow-brutal-pressed",
-  secondary:
-    "bg-brutal-white border-brutal border-brutal-black active:shadow-brutal-pressed",
-  ghost: "bg-transparent border-brutal border-transparent active:bg-brutal-gray",
-  destructive:
-    "bg-brutal-red border-brutal border-brutal-black active:shadow-brutal-pressed",
+  primary: "bg-brutal-black",
+  secondary: "bg-brutal-white",
+  ghost: "bg-transparent active:bg-brutal-gray",
+  destructive: "bg-brutal-red",
 };
 
 const sizeClasses: Record<BrutButtonSize, string> = {
@@ -127,6 +130,7 @@ export function BrutButton({
 }: BrutButtonProps) {
   const [pressed, setPressed] = useState(false);
   const isIconOnly = Boolean(icon) && iconPosition === "middle";
+  const isRaised = shadow && !disabled;
 
   const label =
     typeof children === "string" ? (
@@ -162,10 +166,14 @@ export function BrutButton({
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       className={cn(
-        "items-center justify-center rounded-brutal-sm border-brutal",
+        "items-center justify-center rounded-brutal-sm",
         variantClasses[variant],
         isIconOnly ? iconOnlySizeClasses[size] : sizeClasses[size],
-        shadow && !pressed && !disabled && "shadow-brutal",
+        isRaised
+          ? pressed
+            ? brutalRaisedEdgePressedClasses
+            : brutalRaisedEdgeClasses
+          : brutalFlatEdgeClasses,
         disabled && "opacity-50",
         className,
       )}
