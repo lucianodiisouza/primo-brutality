@@ -2,6 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { View } from "react-native";
 import { BrutButton } from "./BrutButton";
 
+function StoryIcon({ color = "#ffffff" }: { color?: string }) {
+  return (
+    <View
+      className="h-4 w-4 rounded-full border border-brutal-black"
+      style={{ backgroundColor: color }}
+    />
+  );
+}
+
 const meta = {
   title: "Primitives/Button",
   component: BrutButton,
@@ -31,6 +40,11 @@ const meta = {
     disabled: {
       control: "boolean",
       description: "Prevents interaction and lowers opacity.",
+    },
+    iconPosition: {
+      control: "select",
+      options: ["left", "middle", "right"],
+      description: "Icon placement relative to the label.",
     },
     onPress: { action: "pressed" },
   },
@@ -96,6 +110,58 @@ export const Sizes: Story = {
       <BrutButton size="sm">Small</BrutButton>
       <BrutButton size="md">Medium</BrutButton>
       <BrutButton size="lg">Large</BrutButton>
+    </View>
+  ),
+};
+
+/** Icon before the label — default `iconPosition`. */
+export const IconLeft: Story = {
+  args: {
+    children: "Add item",
+    icon: <StoryIcon />,
+    iconPosition: "left",
+  },
+};
+
+/** Icon after the label. */
+export const IconRight: Story = {
+  args: {
+    children: "Next",
+    variant: "secondary",
+    icon: <StoryIcon color="#000000" />,
+    iconPosition: "right",
+  },
+};
+
+/** Icon-only button — provide `accessibilityLabel` for screen readers. */
+export const IconOnly: Story = {
+  args: {
+    icon: <StoryIcon />,
+    iconPosition: "middle",
+    accessibilityLabel: "Settings",
+  },
+};
+
+export const IconPositions: Story = {
+  args: meta.args,
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <View className="gap-3">
+      <BrutButton icon={<StoryIcon />} iconPosition="left">
+        Add item
+      </BrutButton>
+      <BrutButton
+        variant="secondary"
+        icon={<StoryIcon color="#000000" />}
+        iconPosition="right"
+      >
+        Next
+      </BrutButton>
+      <BrutButton
+        icon={<StoryIcon />}
+        iconPosition="middle"
+        accessibilityLabel="Settings"
+      />
     </View>
   ),
 };
