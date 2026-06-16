@@ -3,8 +3,8 @@
   "private": true,
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "storybook": "pnpm --filter storybook dev",
-    "build-storybook": "pnpm --filter storybook build",
+    "storybook": "pnpm --filter @primo-brutality/storybook dev",
+    "build-storybook": "pnpm --filter @primo-brutality/storybook build",
     "build": "pnpm --filter @primo-brutality/ui build",
     "typecheck": "pnpm -r typecheck",
     "lint": "eslint . && prettier --check .",
