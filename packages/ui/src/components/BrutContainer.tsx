@@ -1,7 +1,10 @@
 import { View, type ViewProps } from "react-native";
 import { cn } from "../utils/cn";
 
+/** Outer padding preset for {@link BrutContainer}. */
 export type BrutContainerPadding = "none" | "sm" | "md" | "lg";
+
+/** Max-width preset for {@link BrutContainer}. */
 export type BrutContainerMaxWidth = "none" | "sm" | "md" | "lg" | "full";
 
 const paddingClasses: Record<BrutContainerPadding, string> = {
@@ -19,13 +22,32 @@ const maxWidthClasses: Record<BrutContainerMaxWidth, string> = {
   full: "w-full",
 };
 
+/**
+ * Props for {@link BrutContainer}.
+ *
+ * Extends React Native `ViewProps` with page-level layout presets.
+ */
 export interface BrutContainerProps extends ViewProps {
+  /** Horizontal and vertical padding. @defaultValue `"md"` */
   padding?: BrutContainerPadding;
+  /** Content max width. @defaultValue `"full"` */
   maxWidth?: BrutContainerMaxWidth;
+  /** Center children on both axes. @defaultValue `false` */
   centered?: boolean;
+  /** Additional NativeWind classes. */
   className?: string;
 }
 
+/**
+ * Full-screen cream page wrapper with padding and optional max-width column.
+ *
+ * @example
+ * ```tsx
+ * <BrutContainer maxWidth="md" padding="lg">
+ *   <BrutCard>...</BrutCard>
+ * </BrutContainer>
+ * ```
+ */
 export function BrutContainer({
   padding = "md",
   maxWidth = "full",
