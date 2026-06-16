@@ -8,6 +8,19 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Overlays/Modal",
   component: BrutModal,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Centered overlay dialog. Backdrop press dismisses; inner panel stops propagation.",
+      },
+    },
+  },
+  argTypes: {
+    size: { control: "select", options: ["sm", "md", "full"] },
+    title: { control: "text" },
+  },
   args: {
     visible: false,
     onClose: () => {},
