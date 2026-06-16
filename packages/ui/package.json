@@ -2,6 +2,33 @@
   "name": "@primo-brutality/ui",
   "version": "0.1.0",
   "description": "Neo-brutalist React Native component library",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucianodiisouza/primo-brutality.git",
+    "directory": "packages/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/lucianodiisouza/primo-brutality/issues"
+  },
+  "homepage": "https://github.com/lucianodiisouza/primo-brutality#readme",
+  "keywords": [
+    "react-native",
+    "expo",
+    "nativewind",
+    "components",
+    "ui",
+    "neo-brutalism",
+    "design-system"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
+  "sideEffects": [
+    "./global.css"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -21,7 +48,8 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
     "nativewind": ">=4.0.0",
