@@ -1,0 +1,7 @@
+node_modules
+.pnpm-store
+dist
+storybook-static
+.turbo
+*.log
+.DS_Store
