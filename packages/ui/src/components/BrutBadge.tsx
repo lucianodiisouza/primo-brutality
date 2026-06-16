@@ -2,6 +2,7 @@ import { View, type ViewProps } from "react-native";
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
 
+/** Color preset for {@link BrutBadge}. */
 export type BrutBadgeVariant =
   | "default"
   | "pink"
@@ -31,12 +32,28 @@ const textColorMap: Record<
   outline: "default",
 };
 
+/**
+ * Props for {@link BrutBadge}.
+ *
+ * Extends React Native `ViewProps`. Requires a short `label` string.
+ */
 export interface BrutBadgeProps extends ViewProps {
+  /** Color and fill preset. @defaultValue `"default"` */
   variant?: BrutBadgeVariant;
+  /** Badge label text. */
   label: string;
+  /** Additional NativeWind classes. */
   className?: string;
 }
 
+/**
+ * Compact status pill with brutal border and accent color presets.
+ *
+ * @example
+ * ```tsx
+ * <BrutBadge label="New" variant="pink" />
+ * ```
+ */
 export function BrutBadge({
   variant = "default",
   label,
