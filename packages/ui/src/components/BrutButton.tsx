@@ -3,7 +3,10 @@ import { Pressable, type PressableProps } from "react-native";
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
 
+/** Visual style preset for {@link BrutButton}. */
 export type BrutButtonVariant = "primary" | "secondary" | "ghost" | "destructive";
+
+/** Touch target and padding preset for {@link BrutButton}. */
 export type BrutButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<BrutButtonVariant, string> = {
@@ -37,15 +40,46 @@ const textColorMap: Record<
   destructive: "inverse",
 };
 
+/**
+ * Props for {@link BrutButton}.
+ *
+ * Extends React Native `PressableProps` (except `children`) with brutal styling
+ * presets. String children are wrapped in {@link BrutText}; pass custom nodes
+ * for icon+label layouts.
+ */
 export interface BrutButtonProps extends Omit<PressableProps, "children"> {
+  /** Color and fill preset. @defaultValue `"primary"` */
   variant?: BrutButtonVariant;
+  /** Padding and minimum height. @defaultValue `"md"` */
   size?: BrutButtonSize;
+  /** Hard offset shadow while idle. Removed while pressed or disabled. @defaultValue `true` */
   shadow?: boolean;
+  /** Additional NativeWind classes on the outer `Pressable`. */
   className?: string;
+  /** Additional NativeWind classes when children is a string (applied to inner text). */
   textClassName?: string;
+  /** Label text or custom content (icons, rows, etc.). */
   children: React.ReactNode;
 }
 
+/**
+ * Neo-brutalist pressable button with hard borders, optional drop shadow, and
+ * press feedback.
+ *
+ * @example
+ * ```tsx
+ * <BrutButton variant="primary" onPress={() => console.log("go")}>
+ *   Continue
+ * </BrutButton>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <BrutButton variant="destructive" size="sm" disabled>
+ *   Delete
+ * </BrutButton>
+ * ```
+ */
 export function BrutButton({
   variant = "primary",
   size = "md",
