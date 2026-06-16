@@ -1,0 +1,31 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as BrutToggleStories from "./BrutToggle.stories";
+
+<Meta of={BrutToggleStories} />
+
+# BrutToggle
+
+On/off switch for settings screens, feature flags, and preference rows.
+
+## Usage
+
+```tsx
+import { useState } from "react";
+import { BrutToggle } from "@primo-brutality/ui";
+
+const [enabled, setEnabled] = useState(false);
+
+<BrutToggle
+  value={enabled}
+  onValueChange={setEnabled}
+  accessibilityLabel="Push notifications"
+/>
+```
+
+<Primary />
+
+<Controls />
+
+<Canvas of={BrutToggleStories.SettingsRow} />
+
+<Stories />
