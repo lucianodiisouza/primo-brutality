@@ -2,6 +2,7 @@ import { View, type ViewProps } from "react-native";
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
 
+/** Semantic variant for {@link BrutAlert}. */
 export type BrutAlertVariant = "info" | "success" | "warning" | "error";
 
 const variantClasses: Record<BrutAlertVariant, string> = {
@@ -26,13 +27,34 @@ const messageColorMap: Record<BrutAlertVariant, "default" | "inverse" | "muted">
     error: "inverse",
   };
 
+/**
+ * Props for {@link BrutAlert}.
+ *
+ * Extends React Native `ViewProps` with title and optional message.
+ */
 export interface BrutAlertProps extends ViewProps {
+  /** Semantic color preset. @defaultValue `"info"` */
   variant?: BrutAlertVariant;
+  /** Alert headline. */
   title: string;
+  /** Optional supporting copy. */
   message?: string;
+  /** Additional NativeWind classes. */
   className?: string;
 }
 
+/**
+ * Inline feedback banner with semantic color variants and `accessibilityRole="alert"`.
+ *
+ * @example
+ * ```tsx
+ * <BrutAlert
+ *   variant="success"
+ *   title="Saved"
+ *   message="Your profile was updated."
+ * />
+ * ```
+ */
 export function BrutAlert({
   variant = "info",
   title,
