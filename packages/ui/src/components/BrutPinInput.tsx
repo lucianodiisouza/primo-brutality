@@ -9,17 +9,48 @@ import {
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
 
+/**
+ * Props for {@link BrutPinInput}.
+ *
+ * Controlled OTP/PIN field: a hidden `TextInput` drives value and focus while
+ * styled cells show digit progress.
+ */
 export interface BrutPinInputProps {
+  /** Number of digits. @defaultValue `6` */
   length?: number;
+  /** Current digit string (digits only, max `length`). */
   value: string;
+  /** Called when the value changes. */
   onChange: (value: string) => void;
+  /** Called once when `value.length === length`. */
   onComplete?: (value: string) => void;
+  /** Mask entered digits as bullets. @defaultValue `false` */
   secure?: boolean;
+  /** Error message — highlights cells with a red border. */
   error?: string;
+  /** Prevents input when true. @defaultValue `false` */
   disabled?: boolean;
+  /** NativeWind classes on the root wrapper. */
   className?: string;
 }
 
+/**
+ * OTP / PIN entry with visible digit cells and a hidden numeric input.
+ *
+ * Non-digit characters are stripped. Tapping the cell row focuses the input.
+ *
+ * @example
+ * ```tsx
+ * const [code, setCode] = useState("");
+ *
+ * <BrutPinInput
+ *   length={6}
+ *   value={code}
+ *   onChange={setCode}
+ *   onComplete={(pin) => verify(pin)}
+ * />
+ * ```
+ */
 export function BrutPinInput({
   length = 6,
   value,
