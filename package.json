@@ -5,7 +5,8 @@
     "storybook": "pnpm --filter storybook dev",
     "build-storybook": "pnpm --filter storybook build",
     "build": "pnpm --filter @primo-brutality/ui build",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --filter @primo-brutality/ui test"
   },
   "devDependencies": {
     "typescript": "^5.8.3"
