@@ -1,5 +1,11 @@
 # @primo-brutality/ui
 
+## 2.0.0
+
+### Major Changes
+
+- e32e6a0: Remove the `ScrollView` export. Use React Native's `ScrollView`, `FlatList`, or `@shopify/flash-list` directly in app code instead.
+
 ## 1.0.0
 
 ### Major Changes
