@@ -1,8 +1,16 @@
 name: Release
 
+# First publish requires manual npm setup:
+# 1. Create the npm org "primo-brutality" at https://www.npmjs.com/org/create
+# 2. Create an Automation token with publish access to @primo-brutality
+# 3. Add it as the NPM_TOKEN repository secret
+# 4. Re-run this workflow (first publish cannot use OIDC alone)
+# After the first release, configure Trusted Publishers on npm and remove NPM_TOKEN.
+
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: release
@@ -44,3 +52,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # setup-node writes _authToken=${NODE_AUTH_TOKEN} to .npmrc; required for token bootstrap
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
