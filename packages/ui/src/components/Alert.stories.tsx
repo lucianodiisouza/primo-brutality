@@ -8,8 +8,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          "Inline feedback banner with semantic color variants.",
+        component: "Inline feedback banner with semantic color variants.",
       },
     },
   },
@@ -41,8 +40,16 @@ export const AllVariants: Story = {
     <View className="gap-3">
       <Alert variant="info" title="Heads up" message="New feature available." />
       <Alert variant="success" title="Saved" message="Profile updated." />
-      <Alert variant="warning" title="Action needed" message="Verify your email." />
-      <Alert variant="error" title="Failed" message="Could not process payment." />
+      <Alert
+        variant="warning"
+        title="Action needed"
+        message="Verify your email."
+      />
+      <Alert
+        variant="error"
+        title="Failed"
+        message="Could not process payment."
+      />
     </View>
   ),
 };

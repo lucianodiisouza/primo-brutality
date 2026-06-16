@@ -19,13 +19,12 @@ const titleColorMap: Record<AlertVariant, "default" | "inverse"> = {
   error: "inverse",
 };
 
-const messageColorMap: Record<AlertVariant, "default" | "inverse" | "muted"> =
-  {
-    info: "muted",
-    success: "inverse",
-    warning: "default",
-    error: "inverse",
-  };
+const messageColorMap: Record<AlertVariant, "default" | "inverse" | "muted"> = {
+  info: "muted",
+  success: "inverse",
+  warning: "default",
+  error: "inverse",
+};
 
 /**
  * Props for {@link Alert}.
@@ -76,11 +75,7 @@ export function Alert({
         {title}
       </Text>
       {message ? (
-        <Text
-          size="sm"
-          color={messageColorMap[variant]}
-          className="mt-1"
-        >
+        <Text size="sm" color={messageColorMap[variant]} className="mt-1">
           {message}
         </Text>
       ) : null}

@@ -20,10 +20,7 @@ const variantClasses: Record<BadgeVariant, string> = {
   outline: "bg-brutal-white",
 };
 
-const textColorMap: Record<
-  BadgeVariant,
-  "inverse" | "default"
-> = {
+const textColorMap: Record<BadgeVariant, "inverse" | "default"> = {
   default: "inverse",
   pink: "default",
   yellow: "default",

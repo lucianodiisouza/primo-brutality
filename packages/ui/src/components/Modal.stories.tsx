@@ -56,9 +56,7 @@ export const Interactive: Story = {
             </View>
           }
         >
-          <Text color="muted">
-            Are you sure you want to continue?
-          </Text>
+          <Text color="muted">Are you sure you want to continue?</Text>
         </Modal>
       </View>
     );

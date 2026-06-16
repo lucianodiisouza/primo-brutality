@@ -1,9 +1,6 @@
 import type { Preview } from "@storybook/react-native-web-vite";
 import { View } from "react-native";
-import {
-  Container,
-  ToastProvider,
-} from "@primo-brutality/ui";
+import { Container, ToastProvider } from "@primo-brutality/ui";
 import "../../../packages/ui/global.css";
 
 const preview: Preview = {

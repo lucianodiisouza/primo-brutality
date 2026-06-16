@@ -5,13 +5,9 @@ import { Toggle } from "./Toggle";
 
 describe("Toggle", () => {
   it("renders as a switch with checked state", () => {
-    render(
-      <Toggle value accessibilityLabel="Notifications" />,
-    );
+    render(<Toggle value accessibilityLabel="Notifications" />);
 
-    expect(
-      screen.getByRole("switch", { name: "Notifications" }),
-    ).toBeTruthy();
+    expect(screen.getByRole("switch", { name: "Notifications" })).toBeTruthy();
   });
 
   it("calls onValueChange with the toggled value", async () => {

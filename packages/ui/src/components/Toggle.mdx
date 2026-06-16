@@ -1,4 +1,10 @@
-import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import {
+  Meta,
+  Canvas,
+  Controls,
+  Primary,
+  Stories,
+} from "@storybook/addon-docs/blocks";
 import * as ToggleStories from "./Toggle.stories";
 
 <Meta of={ToggleStories} />
@@ -19,7 +25,7 @@ const [enabled, setEnabled] = useState(false);
   value={enabled}
   onValueChange={setEnabled}
   accessibilityLabel="Push notifications"
-/>
+/>;
 ```
 
 <Primary />

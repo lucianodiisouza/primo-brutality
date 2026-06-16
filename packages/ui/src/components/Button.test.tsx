@@ -49,17 +49,13 @@ describe("Button", () => {
   });
 
   it("forwards accessibility props to Pressable", () => {
-    render(
-      <Button accessibilityLabel="Submit form">Submit</Button>,
-    );
+    render(<Button accessibilityLabel="Submit form">Submit</Button>);
 
     expect(screen.getByLabelText("Submit form")).toBeTruthy();
   });
 
   it("renders icon on the left of the label by default", () => {
-    render(
-      <Button icon={<MockIcon />}>Add item</Button>,
-    );
+    render(<Button icon={<MockIcon />}>Add item</Button>);
 
     expect(screen.getByTestId("mock-icon")).toBeTruthy();
     expect(screen.getByText("Add item")).toBeTruthy();

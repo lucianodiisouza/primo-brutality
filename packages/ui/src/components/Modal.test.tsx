@@ -23,7 +23,9 @@ describe("Modal", () => {
     );
 
     expect(screen.getByRole("dialog")).toBeTruthy();
-    expect(screen.getByRole("heading", { name: "Confirm action" })).toBeTruthy();
+    expect(
+      screen.getByRole("heading", { name: "Confirm action" }),
+    ).toBeTruthy();
     expect(screen.getByText("Are you sure?")).toBeTruthy();
   });
 

@@ -1,10 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import {
-  ToastProvider,
-  useToast,
-} from "../providers/ToastProvider";
+import { ToastProvider, useToast } from "../providers/ToastProvider";
 
 function ToastTrigger({ message }: { message: string }) {
   const { show } = useToast();

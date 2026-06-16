@@ -31,8 +31,10 @@ const thumbPressedClasses =
  *
  * Mirrors the React Native `Switch` API with brutal track and thumb styling.
  */
-export interface ToggleProps
-  extends Omit<PressableProps, "children" | "onPress"> {
+export interface ToggleProps extends Omit<
+  PressableProps,
+  "children" | "onPress"
+> {
   /** Whether the switch is on. */
   value: boolean;
   /** Called with the next value when the user toggles. */

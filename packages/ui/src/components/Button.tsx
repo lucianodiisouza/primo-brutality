@@ -42,10 +42,7 @@ const textSizeMap: Record<ButtonSize, "sm" | "base" | "lg"> = {
   lg: "lg",
 };
 
-const textColorMap: Record<
-  ButtonVariant,
-  "inverse" | "default" | "red"
-> = {
+const textColorMap: Record<ButtonVariant, "inverse" | "default" | "red"> = {
   primary: "inverse",
   secondary: "default",
   ghost: "default",

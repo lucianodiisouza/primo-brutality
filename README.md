@@ -4,9 +4,9 @@ Monorepo for **@primo-brutality/ui** — a neo-brutalist React Native component 
 
 ## Packages
 
-| Package              | Description                          |
-| -------------------- | ------------------------------------ |
-| `@primo-brutality/ui`| Published React Native UI components |
+| Package               | Description                          |
+| --------------------- | ------------------------------------ |
+| `@primo-brutality/ui` | Published React Native UI components |
 
 ## Getting started
 

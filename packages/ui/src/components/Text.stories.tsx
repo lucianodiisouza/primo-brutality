@@ -21,7 +21,15 @@ const meta = {
     },
     color: {
       control: "select",
-      options: ["default", "muted", "inverse", "pink", "yellow", "green", "red"],
+      options: [
+        "default",
+        "muted",
+        "inverse",
+        "pink",
+        "yellow",
+        "green",
+        "red",
+      ],
     },
   },
   args: {

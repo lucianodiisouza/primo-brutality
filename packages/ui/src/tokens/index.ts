@@ -40,5 +40,6 @@ export const shadows = {
 } as const;
 
 export const fontFamily = {
-  brutal: "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+  brutal:
+    "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
 } as const;

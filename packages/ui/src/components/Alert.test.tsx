@@ -5,11 +5,7 @@ import { Alert } from "./Alert";
 describe("Alert", () => {
   it("renders title and message", () => {
     render(
-      <Alert
-        variant="success"
-        title="Saved"
-        message="Profile updated."
-      />,
+      <Alert variant="success" title="Saved" message="Profile updated." />,
     );
 
     expect(screen.getByRole("alert")).toBeTruthy();

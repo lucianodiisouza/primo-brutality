@@ -6,7 +6,11 @@ import { Input } from "./Input";
 describe("Input", () => {
   it("renders label and hint", () => {
     render(
-      <Input label="Email" hint="Required field" placeholder="you@example.com" />,
+      <Input
+        label="Email"
+        hint="Required field"
+        placeholder="you@example.com"
+      />,
     );
 
     expect(screen.getByText("Email")).toBeTruthy();

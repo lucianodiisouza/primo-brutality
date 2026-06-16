@@ -48,9 +48,7 @@ export const Default: Story = {
 
 export const Success: Story = {
   args: { children: "Show toast" },
-  render: () => (
-    <ToastDemo variant="success" message="Payment successful!" />
-  ),
+  render: () => <ToastDemo variant="success" message="Payment successful!" />,
 };
 
 export const ErrorToast: Story = {

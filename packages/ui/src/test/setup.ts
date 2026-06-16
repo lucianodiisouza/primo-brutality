@@ -112,11 +112,13 @@ type MockTextProps = {
   accessibilityRole?: string;
 };
 
-function Text({ children, testID, className, accessibilityRole }: MockTextProps) {
-  const role =
-    accessibilityRole === "header"
-      ? "heading"
-      : accessibilityRole;
+function Text({
+  children,
+  testID,
+  className,
+  accessibilityRole,
+}: MockTextProps) {
+  const role = accessibilityRole === "header" ? "heading" : accessibilityRole;
 
   return createElement(
     "span",
@@ -128,9 +130,7 @@ function Text({ children, testID, className, accessibilityRole }: MockTextProps)
 type MockTextInputProps = {
   value?: string;
   onChangeText?: (value: string) => void;
-  onKeyPress?: (event: {
-    nativeEvent: { key: string };
-  }) => void;
+  onKeyPress?: (event: { nativeEvent: { key: string } }) => void;
   editable?: boolean;
   testID?: string;
   accessibilityLabel?: string;
