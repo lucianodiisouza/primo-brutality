@@ -5,6 +5,15 @@ import { useToast } from "../providers/BrutToastProvider";
 const meta = {
   title: "Overlays/Toast",
   component: BrutButton,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Transient feedback via `BrutToastProvider` and the `useToast()` hook.",
+      },
+    },
+  },
   args: {
     children: "Show toast",
   },
