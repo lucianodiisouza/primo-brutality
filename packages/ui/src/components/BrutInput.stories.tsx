@@ -4,6 +4,21 @@ import { BrutInput } from "./BrutInput";
 const meta = {
   title: "Primitives/Input",
   component: BrutInput,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Text field with brutal border, optional label, hint, and error message.",
+      },
+    },
+  },
+  argTypes: {
+    label: { control: "text" },
+    error: { control: "text" },
+    hint: { control: "text" },
+    editable: { control: "boolean" },
+  },
   args: {
     label: "Email",
     placeholder: "you@example.com",
