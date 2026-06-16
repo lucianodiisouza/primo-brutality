@@ -1,56 +1,32 @@
-# Primo Brutality
+# primo-brutality
 
-Neo-brutalist React Native component library with browser-based Storybook preview.
-
-## Quick start
-
-```bash
-pnpm install
-pnpm storybook
-```
-
-Open [http://localhost:6006](http://localhost:6006) to browse components in the browser — no mobile app required.
+Monorepo for **@primo-brutality/ui** — a neo-brutalist React Native component library powered by NativeWind.
 
 ## Packages
 
-- `@primo-brutality/ui` — component library (`packages/ui`)
-- `storybook` — web preview app (`apps/storybook`)
+| Package              | Description                          |
+| -------------------- | ------------------------------------ |
+| `@primo-brutality/ui`| Published React Native UI components |
 
-## Components
+## Getting started
 
-**Layout:** `BrutContainer`, `BrutScrollView`
+Install the UI package in your React Native or Expo app:
 
-**Primitives:** `BrutText`, `BrutHeading`, `BrutButton`, `BrutInput`, `BrutCard`, `BrutBadge`, `BrutAlert`
-
-**Overlays:** `BrutModal`, `BrutPinInput`, `BrutToastProvider` + `useToast()`
-
-## Usage in an Expo app
-
-```tsx
-import "@primo-brutality/ui/global.css";
-import {
-  BrutButton,
-  BrutContainer,
-  BrutToastProvider,
-} from "@primo-brutality/ui";
-
-export default function App() {
-  return (
-    <BrutToastProvider>
-      <BrutContainer padding="lg">
-        <BrutButton variant="primary">Get started</BrutButton>
-      </BrutContainer>
-    </BrutToastProvider>
-  );
-}
+```bash
+npm install @primo-brutality/ui nativewind
 ```
 
-Configure NativeWind in your Expo app to consume the library's Tailwind tokens from `packages/ui/tailwind.config.js`.
+See the [package README](./packages/ui/README.md) for full setup and usage instructions.
 
-## Scripts
+## Development
 
-| Command | Description |
-|---|---|
-| `pnpm storybook` | Start web Storybook dev server |
-| `pnpm build-storybook` | Build static Storybook site |
-| `pnpm build` | Build `@primo-brutality/ui` |
+```bash
+pnpm install
+pnpm storybook      # component docs & playground
+pnpm build          # build @primo-brutality/ui
+pnpm test           # run component tests
+```
+
+## License
+
+MIT
