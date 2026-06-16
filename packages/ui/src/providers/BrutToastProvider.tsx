@@ -12,12 +12,19 @@ import { View, Pressable } from "react-native";
 import { BrutText } from "../components/BrutText";
 import { cn } from "../utils/cn";
 
+/** Toast color preset. */
 export type BrutToastVariant = "default" | "success" | "error" | "info";
+
+/** Vertical placement of the toast stack. */
 export type BrutToastPosition = "top" | "bottom";
 
+/** Options passed to {@link useToast}.show. */
 export interface BrutToastOptions {
+  /** Message shown inside the toast. */
   message: string;
+  /** Color preset. @defaultValue `"default"` */
   variant?: BrutToastVariant;
+  /** Auto-dismiss delay in ms. @defaultValue `3000` */
   duration?: number;
 }
 
@@ -26,7 +33,9 @@ interface ToastItem extends BrutToastOptions {
 }
 
 interface BrutToastContextValue {
+  /** Queue a toast and return its id. */
   show: (options: BrutToastOptions) => string;
+  /** Dismiss a toast by id. */
   dismiss: (id: string) => void;
 }
 
@@ -71,11 +80,26 @@ function BrutToastItem({
   );
 }
 
+/** Props for {@link BrutToastProvider}. */
 export interface BrutToastProviderProps {
   children: ReactNode;
+  /** Stack position. @defaultValue `"bottom"` */
   position?: BrutToastPosition;
 }
 
+/**
+ * Context provider that renders a toast stack and exposes {@link useToast}.
+ *
+ * Wrap your app root (or Storybook preview) with this provider, then call
+ * `show()` from any descendant.
+ *
+ * @example
+ * ```tsx
+ * <BrutToastProvider>
+ *   <App />
+ * </BrutToastProvider>
+ * ```
+ */
 export function BrutToastProvider({
   children,
   position = "bottom",
@@ -142,6 +166,17 @@ export function BrutToastProvider({
   );
 }
 
+/**
+ * Access toast `show` and `dismiss` helpers.
+ *
+ * Must be used inside {@link BrutToastProvider}.
+ *
+ * @example
+ * ```tsx
+ * const { show } = useToast();
+ * show({ message: "Saved!", variant: "success" });
+ * ```
+ */
 export function useToast(): BrutToastContextValue {
   const context = useContext(BrutToastContext);
   if (!context) {
