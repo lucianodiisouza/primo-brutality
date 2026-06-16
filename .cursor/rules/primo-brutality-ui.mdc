@@ -1,0 +1,22 @@
+---
+description: Conventions for @primo-brutality/ui — React Native + NativeWind component library
+alwaysApply: true
+---
+
+# @primo-brutality/ui
+
+Neo-brutalist **React Native** component library (NativeWind v4). Read `AGENTS.md` and `llms.txt` for full context.
+
+## Stack
+
+- React Native primitives only (`View`, `Text`, `Pressable`) — never web elements
+- Styling via NativeWind `className` and `brutal-*` design tokens
+- Layout: prefer `YContainer`, `XContainer`, `Container`
+
+## New components
+
+Add `.tsx`, `.stories.tsx`, `.mdx`, and tests; export from `packages/ui/src/index.ts`; update `README.md` and `llms.txt`.
+
+## Commands
+
+`pnpm storybook` · `pnpm build` · `pnpm test`
