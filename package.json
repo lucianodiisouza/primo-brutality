@@ -1,14 +1,19 @@
 {
   "name": "primo-brutality",
   "private": true,
+  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "storybook": "pnpm --filter storybook dev",
     "build-storybook": "pnpm --filter storybook build",
     "build": "pnpm --filter @primo-brutality/ui build",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm --filter @primo-brutality/ui test"
+    "test": "pnpm --filter @primo-brutality/ui test",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "typescript": "^5.8.3"
   }
 }
