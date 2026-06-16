@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls, Primary, Stories } from "@storybook/addon-docs/blocks";
+import * as BrutButtonStories from "./BrutButton.stories";
+
+<Meta of={BrutButtonStories} />
+
+# BrutButton
+
+Pressable action control with neo-brutalist styling: thick borders, optional hard
+shadow, and a pressed state that collapses the shadow.
+
+Use **primary** for the main action, **secondary** for alternates, **ghost** for
+low-emphasis links, and **destructive** for irreversible actions.
+
+## Usage
+
+```tsx
+import { BrutButton } from "@primo-brutality/ui";
+
+export function Example() {
+  return (
+    <BrutButton variant="primary" onPress={() => {}}>
+      Continue
+    </BrutButton>
+  );
+}
+```
+
+## Playground
+
+<Primary />
+
+<Controls />
+
+## Variants
+
+<Canvas of={BrutButtonStories.AllVariants} />
+
+## Sizes
+
+<Canvas of={BrutButtonStories.Sizes} />
+
+## All stories
+
+<Stories />
