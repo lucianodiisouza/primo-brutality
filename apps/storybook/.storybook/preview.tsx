@@ -17,15 +17,21 @@ const preview: Preview = {
     layout: "fullscreen",
   },
   decorators: [
-    (Story) => (
-      <BrutToastProvider>
-        <BrutContainer padding="lg" className="min-h-screen">
-          <View className="w-full py-6">
-            <Story />
-          </View>
-        </BrutContainer>
-      </BrutToastProvider>
-    ),
+    (Story, { parameters }) => {
+      const content = <Story />;
+
+      if (parameters.disableContainerDecorator) {
+        return <BrutToastProvider>{content}</BrutToastProvider>;
+      }
+
+      return (
+        <BrutToastProvider>
+          <BrutContainer padding="lg" className="min-h-screen">
+            <View className="w-full py-6">{content}</View>
+          </BrutContainer>
+        </BrutToastProvider>
+      );
+    },
   ],
 };
 
