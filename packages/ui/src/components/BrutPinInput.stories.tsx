@@ -6,6 +6,10 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Overlays/PinInput",
   component: BrutPinInput,
+  args: {
+    value: "",
+    onChange: () => {},
+  },
 } satisfies Meta<typeof BrutPinInput>;
 
 export default meta;
@@ -13,6 +17,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const SixDigit: Story = {
+  args: {
+    value: "",
+    onChange: () => {},
+  },
   render: () => {
     const [value, setValue] = useState("");
 
@@ -28,6 +36,10 @@ export const SixDigit: Story = {
 };
 
 export const FourDigitSecure: Story = {
+  args: {
+    value: "",
+    onChange: () => {},
+  },
   render: () => {
     const [value, setValue] = useState("");
 
@@ -44,6 +56,10 @@ export const FourDigitSecure: Story = {
 };
 
 export const WithError: Story = {
+  args: {
+    value: "123",
+    onChange: () => {},
+  },
   render: () => {
     const [value, setValue] = useState("123");
 

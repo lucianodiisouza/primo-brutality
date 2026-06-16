@@ -5,6 +5,9 @@ import { useToast } from "../providers/BrutToastProvider";
 const meta = {
   title: "Overlays/Toast",
   component: BrutButton,
+  args: {
+    children: "Show toast",
+  },
 } satisfies Meta<typeof BrutButton>;
 
 export default meta;
@@ -31,19 +34,23 @@ function ToastDemo({
 }
 
 export const Default: Story = {
+  args: { children: "Show toast" },
   render: () => <ToastDemo message="Something happened." />,
 };
 
 export const Success: Story = {
+  args: { children: "Show toast" },
   render: () => (
     <ToastDemo variant="success" message="Payment successful!" />
   ),
 };
 
 export const ErrorToast: Story = {
+  args: { children: "Show toast" },
   render: () => <ToastDemo variant="error" message="Something went wrong." />,
 };
 
 export const Info: Story = {
+  args: { children: "Show toast" },
   render: () => <ToastDemo variant="info" message="New update available." />,
 };
