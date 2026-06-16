@@ -1,0 +1,13 @@
+{
+  "name": "primo-brutality",
+  "private": true,
+  "scripts": {
+    "storybook": "pnpm --filter storybook dev",
+    "build-storybook": "pnpm --filter storybook build",
+    "build": "pnpm --filter @primo-brutality/ui build",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
