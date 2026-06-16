@@ -1,10 +1,15 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsxImportSource": "nativewind"
+    "jsxImportSource": "nativewind",
+    "paths": {
+      "@primo-brutality/ui": ["../../packages/ui/src/index.ts"]
+    }
   },
   "include": [
     ".storybook/**/*",
-    "../../packages/ui/src/**/*.stories.tsx"
-  ]
+    "../../packages/ui/src/**/*",
+    "../../packages/ui/nativewind-env.d.ts"
+  ],
+  "exclude": ["../../packages/ui/src/**/*.test.tsx"]
 }
