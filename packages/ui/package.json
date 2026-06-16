@@ -38,11 +38,14 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./global.css": "./global.css"
+    "./global.css": "./global.css",
+    "./tailwind-preset": "./tailwind-preset.js",
+    "./tailwind-preset.js": "./tailwind-preset.js"
   },
   "files": [
     "dist",
-    "global.css"
+    "global.css",
+    "tailwind-preset.js"
   ],
   "scripts": {
     "build": "tsup",
