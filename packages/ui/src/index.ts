@@ -5,3 +5,4 @@ export * from "./components/BrutInput";
 export * from "./components/BrutCard";
 export * from "./components/BrutBadge";
 export * from "./components/BrutAlert";
+export * from "./components/BrutContainer";
