@@ -11,5 +11,6 @@ export * from "./components/BrutYContainer";
 export * from "./components/BrutScrollView";
 export * from "./components/BrutModal";
 export * from "./components/BrutPinInput";
+export * from "./components/BrutToggle";
 export * from "./providers/BrutToastProvider";
 export { cn } from "./utils/cn";
