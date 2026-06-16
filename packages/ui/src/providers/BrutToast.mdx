@@ -1,0 +1,35 @@
+import { Meta, Canvas, Stories } from "@storybook/addon-docs/blocks";
+import * as BrutToastStories from "./BrutToast.stories";
+
+<Meta of={BrutToastStories} />
+
+# Toast
+
+Transient feedback via `BrutToastProvider` and the `useToast()` hook.
+
+## Setup
+
+```tsx
+import { BrutToastProvider, useToast } from "@primo-brutality/ui";
+
+function App() {
+  return (
+    <BrutToastProvider>
+      <Screen />
+    </BrutToastProvider>
+  );
+}
+
+function Screen() {
+  const { show } = useToast();
+  return (
+    <BrutButton onPress={() => show({ message: "Saved!", variant: "success" })}>
+      Save
+    </BrutButton>
+  );
+}
+```
+
+<Canvas of={BrutToastStories.Success} />
+
+<Stories />
