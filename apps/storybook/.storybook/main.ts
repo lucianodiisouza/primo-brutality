@@ -37,7 +37,7 @@ const config: StorybookConfig = {
           plugins: [
             {
               name: "nativewind-fix",
-              transform(_code, id) {
+              transform(_code: string, id: string) {
                 if (id.includes("react-native-css-interop")) {
                   return { moduleSideEffects: "no-treeshake" };
                 }
