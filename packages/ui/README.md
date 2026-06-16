@@ -162,6 +162,8 @@ function Screen() {
 | `BrutBadge`        | Small label / status chip                        |
 | `BrutAlert`        | Inline alert banner                              |
 | `BrutContainer`    | Layout wrapper with max-width presets            |
+| `BrutYContainer`   | Vertical stack with token-based gap presets      |
+| `BrutXContainer`   | Horizontal row with token-based gap presets      |
 | `BrutScrollView`   | Scrollable container with brutal styling         |
 | `BrutModal`        | Modal dialog overlay                             |
 | `BrutPinInput`     | PIN / OTP digit input                            |
