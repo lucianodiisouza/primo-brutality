@@ -7,3 +7,4 @@ export * from "./components/BrutBadge";
 export * from "./components/BrutAlert";
 export * from "./components/BrutContainer";
 export * from "./components/BrutScrollView";
+export * from "./components/BrutModal";
