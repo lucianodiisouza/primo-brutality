@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsxImportSource": "nativewind",
+    "rootDir": "src",
+    "baseUrl": "."
+  },
+  "include": ["src/**/*", "nativewind-env.d.ts"],
+  "exclude": ["src/**/*.stories.tsx"]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@primo-brutality/ui",
+  "version": "0.1.0",
+  "description": "Neo-brutalist React Native component library",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./global.css": "./global.css"
+  },
+  "files": [
+    "dist",
+    "global.css"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "nativewind": ">=4.0.0",
+    "react": ">=18.0.0",
+    "react-native": ">=0.74.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "nativewind": "^4.1.23",
+    "react": "^19.1.0",
+    "react-native": "^0.79.5",
+    "react-native-web": "^0.20.0",
+    "tailwindcss": "^3.4.17",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
