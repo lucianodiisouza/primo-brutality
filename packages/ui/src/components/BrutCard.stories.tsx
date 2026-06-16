@@ -6,6 +6,20 @@ import { BrutHeading, BrutText } from "./BrutText";
 const meta = {
   title: "Primitives/Card",
   component: BrutCard,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Bordered content surface with optional hard shadow and padding presets.",
+      },
+    },
+  },
+  argTypes: {
+    shadow: { control: "select", options: ["none", "hard", "soft"] },
+    padding: { control: "select", options: ["none", "sm", "md", "lg"] },
+    variant: { control: "select", options: ["white", "cream"] },
+  },
   args: {
     shadow: "hard",
     padding: "md",
