@@ -18,6 +18,8 @@ npm install @primo-brutality/ui nativewind
 
 See the [package README](./packages/ui/README.md) for full setup and usage instructions.
 
+For AI assistants and agents, see [llms.txt](./llms.txt) and [AGENTS.md](./AGENTS.md).
+
 ## Development
 
 ```bash

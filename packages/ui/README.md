@@ -131,6 +131,25 @@ function Screen() {
 | `ToastProvider` | Toast context provider                          |
 | `useToast`      | Hook to show and dismiss toasts                 |
 
+## AI assistants
+
+If you use Cursor, Copilot, or other coding agents with this library:
+
+- Read [llms.txt](../../llms.txt) for setup, API surface, and generation rules
+- See [AGENTS.md](../../AGENTS.md) for monorepo conventions and pitfalls
+
+### Common pitfalls
+
+| Do | Don't |
+| --- | --- |
+| `onPress`, React Native primitives (`View`, `Text`, `Pressable`) | `onClick`, `<div>`, `<button>`, `<span>` |
+| `import { Button } from "@primo-brutality/ui"` | shadcn, MUI, Chakra, or other web UI kits |
+| `YContainer` / `XContainer` for layout | Raw flex with magic gap numbers |
+| `brutal-*` Tailwind classes | Arbitrary hex colors or generic `gray-500` |
+| Wrap app in `ToastProvider` before `useToast()` | Call `useToast()` without a provider |
+| `Heading` for page titles | Oversized `Text` with manual font classes |
+| `Toggle` with `value` + `onValueChange` | Web-style `checked` / `onChange` |
+
 ## Design tokens
 
 Import raw token values for custom components:
