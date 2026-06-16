@@ -11,6 +11,7 @@ import { BrutModal } from "../components/BrutModal";
 import { BrutPinInput } from "../components/BrutPinInput";
 import { BrutScrollView } from "../components/BrutScrollView";
 import { BrutHeading, BrutText } from "../components/BrutText";
+import { BrutToggle } from "../components/BrutToggle";
 import { BrutXContainer } from "../components/BrutXContainer";
 import { BrutYContainer } from "../components/BrutYContainer";
 import { useToast } from "../providers/BrutToastProvider";
@@ -180,58 +181,71 @@ export const Dashboard: Story = {
 
 export const Settings: Story = {
   parameters: compositionParameters,
-  render: () => (
-    <PhoneFrame>
-      <BrutScrollView contentPadding="lg" className="min-h-[720px]">
-        <BrutYContainer gap="lg" fullWidth>
-          <BrutYContainer gap="sm">
-            <BrutHeading level={2}>Settings</BrutHeading>
-            <BrutText color="muted">
-              Manage your profile and account preferences.
-            </BrutText>
-          </BrutYContainer>
+  render: () => {
+    const [orderUpdates, setOrderUpdates] = useState(true);
+    const [marketing, setMarketing] = useState(false);
 
-          <BrutCard padding="lg">
-            <BrutHeading level={4}>Profile</BrutHeading>
-            <BrutYContainer gap="md" className="mt-4">
-              <BrutInput label="Display name" defaultValue="Alex Rivera" />
-              <BrutInput
-                label="Email"
-                defaultValue="alex@example.com"
-                keyboardType="email-address"
-                autoCapitalize="none"
-              />
-              <BrutInput
-                label="Bio"
-                placeholder="Tell us about yourself"
-                defaultValue="Designer & maker of brutal things."
-                multiline
-              />
+    return (
+      <PhoneFrame>
+        <BrutScrollView contentPadding="lg" className="min-h-[720px]">
+          <BrutYContainer gap="lg" fullWidth>
+            <BrutYContainer gap="sm">
+              <BrutHeading level={2}>Settings</BrutHeading>
+              <BrutText color="muted">
+                Manage your profile and account preferences.
+              </BrutText>
             </BrutYContainer>
-          </BrutCard>
 
-          <BrutCard padding="lg" variant="cream">
-            <BrutHeading level={4}>Notifications</BrutHeading>
-            <BrutYContainer gap="sm" className="mt-4">
-              <BrutXContainer justify="between" align="center" fullWidth>
-                <BrutText>Order updates</BrutText>
-                <BrutBadge label="On" variant="green" />
-              </BrutXContainer>
-              <BrutXContainer justify="between" align="center" fullWidth>
-                <BrutText>Marketing emails</BrutText>
-                <BrutBadge label="Off" variant="outline" />
-              </BrutXContainer>
+            <BrutCard padding="lg">
+              <BrutHeading level={4}>Profile</BrutHeading>
+              <BrutYContainer gap="md" className="mt-4">
+                <BrutInput label="Display name" defaultValue="Alex Rivera" />
+                <BrutInput
+                  label="Email"
+                  defaultValue="alex@example.com"
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                />
+                <BrutInput
+                  label="Bio"
+                  placeholder="Tell us about yourself"
+                  defaultValue="Designer & maker of brutal things."
+                  multiline
+                />
+              </BrutYContainer>
+            </BrutCard>
+
+            <BrutCard padding="lg" variant="cream">
+              <BrutHeading level={4}>Notifications</BrutHeading>
+              <BrutYContainer gap="sm" className="mt-4">
+                <BrutXContainer justify="between" align="center" fullWidth>
+                  <BrutText>Order updates</BrutText>
+                  <BrutToggle
+                    value={orderUpdates}
+                    onValueChange={setOrderUpdates}
+                    accessibilityLabel="Order updates"
+                  />
+                </BrutXContainer>
+                <BrutXContainer justify="between" align="center" fullWidth>
+                  <BrutText>Marketing emails</BrutText>
+                  <BrutToggle
+                    value={marketing}
+                    onValueChange={setMarketing}
+                    accessibilityLabel="Marketing emails"
+                  />
+                </BrutXContainer>
+              </BrutYContainer>
+            </BrutCard>
+
+            <BrutYContainer gap="sm">
+              <BrutButton size="lg">Save changes</BrutButton>
+              <BrutButton variant="destructive">Delete account</BrutButton>
             </BrutYContainer>
-          </BrutCard>
-
-          <BrutYContainer gap="sm">
-            <BrutButton size="lg">Save changes</BrutButton>
-            <BrutButton variant="destructive">Delete account</BrutButton>
           </BrutYContainer>
-        </BrutYContainer>
-      </BrutScrollView>
-    </PhoneFrame>
-  ),
+        </BrutScrollView>
+      </PhoneFrame>
+    );
+  },
 };
 
 export const OtpVerification: Story = {
