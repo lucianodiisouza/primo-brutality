@@ -56,6 +56,7 @@ type MockPressableProps = {
   onPressOut?: () => void;
   accessibilityLabel?: string;
   accessibilityRole?: string;
+  accessibilityState?: { checked?: boolean; disabled?: boolean };
   testID?: string;
   className?: string;
 };
@@ -68,6 +69,7 @@ function Pressable({
   onPressOut,
   accessibilityLabel,
   accessibilityRole,
+  accessibilityState,
   testID,
   className,
 }: MockPressableProps) {
@@ -75,6 +77,7 @@ function Pressable({
     accessibilityRole === "none"
       ? false
       : accessibilityRole === "button" ||
+        accessibilityRole === "switch" ||
         Boolean(accessibilityLabel) ||
         (Boolean(onPress) && accessibilityRole === undefined);
 
@@ -85,6 +88,10 @@ function Pressable({
       disabled: isButton ? disabled : undefined,
       "aria-label": accessibilityLabel,
       role: accessibilityRole === "none" ? undefined : accessibilityRole,
+      "aria-checked":
+        accessibilityRole === "switch"
+          ? String(accessibilityState?.checked ?? false)
+          : undefined,
       "data-testid": testID,
       className,
       onClick: (event: { stopPropagation: () => void }) => {
