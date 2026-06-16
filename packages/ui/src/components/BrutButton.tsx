@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, type PressableProps } from "react-native";
+import { Pressable, View, type PressableProps } from "react-native";
 import { BrutText } from "./BrutText";
 import { cn } from "../utils/cn";
 
@@ -8,6 +8,9 @@ export type BrutButtonVariant = "primary" | "secondary" | "ghost" | "destructive
 
 /** Touch target and padding preset for {@link BrutButton}. */
 export type BrutButtonSize = "sm" | "md" | "lg";
+
+/** Icon placement relative to the button label. */
+export type BrutButtonIconPosition = "left" | "middle" | "right";
 
 const variantClasses: Record<BrutButtonVariant, string> = {
   primary: "bg-brutal-black border-brutal border-brutal-black active:shadow-brutal-pressed",
@@ -22,6 +25,12 @@ const sizeClasses: Record<BrutButtonSize, string> = {
   sm: "px-3 py-1.5 min-h-[32px]",
   md: "px-4 py-2.5 min-h-[44px]",
   lg: "px-6 py-3 min-h-[52px]",
+};
+
+const iconOnlySizeClasses: Record<BrutButtonSize, string> = {
+  sm: "p-1.5 min-h-[32px] min-w-[32px]",
+  md: "p-2.5 min-h-[44px] min-w-[44px]",
+  lg: "p-3 min-h-[52px] min-w-[52px]",
 };
 
 const textSizeMap: Record<BrutButtonSize, "sm" | "base" | "lg"> = {
@@ -45,7 +54,7 @@ const textColorMap: Record<
  *
  * Extends React Native `PressableProps` (except `children`) with brutal styling
  * presets. String children are wrapped in {@link BrutText}; pass custom nodes
- * for icon+label layouts.
+ * for fully custom layouts without the `icon` prop.
  */
 export interface BrutButtonProps extends Omit<PressableProps, "children"> {
   /** Color and fill preset. @defaultValue `"primary"` */
@@ -54,12 +63,20 @@ export interface BrutButtonProps extends Omit<PressableProps, "children"> {
   size?: BrutButtonSize;
   /** Hard offset shadow while idle. Removed while pressed or disabled. @defaultValue `true` */
   shadow?: boolean;
+  /** Optional icon node (e.g. from your icon library). */
+  icon?: React.ReactNode;
+  /**
+   * Icon placement relative to the label.
+   * `"middle"` renders the icon alone — set `accessibilityLabel` for screen readers.
+   * @defaultValue `"left"`
+   */
+  iconPosition?: BrutButtonIconPosition;
   /** Additional NativeWind classes on the outer `Pressable`. */
   className?: string;
   /** Additional NativeWind classes when children is a string (applied to inner text). */
   textClassName?: string;
-  /** Label text or custom content (icons, rows, etc.). */
-  children: React.ReactNode;
+  /** Label text or custom content. Optional when `iconPosition` is `"middle"`. */
+  children?: React.ReactNode;
 }
 
 /**
@@ -79,11 +96,29 @@ export interface BrutButtonProps extends Omit<PressableProps, "children"> {
  *   Delete
  * </BrutButton>
  * ```
+ *
+ * @example
+ * ```tsx
+ * <BrutButton icon={<PlusIcon />} iconPosition="left">
+ *   Add item
+ * </BrutButton>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <BrutButton
+ *   icon={<SettingsIcon />}
+ *   iconPosition="middle"
+ *   accessibilityLabel="Settings"
+ * />
+ * ```
  */
 export function BrutButton({
   variant = "primary",
   size = "md",
   shadow = true,
+  icon,
+  iconPosition = "left",
   disabled,
   className,
   textClassName,
@@ -91,6 +126,35 @@ export function BrutButton({
   ...props
 }: BrutButtonProps) {
   const [pressed, setPressed] = useState(false);
+  const isIconOnly = Boolean(icon) && iconPosition === "middle";
+
+  const label =
+    typeof children === "string" ? (
+      <BrutText
+        size={textSizeMap[size]}
+        weight="semibold"
+        color={textColorMap[variant]}
+        className={textClassName}
+      >
+        {children}
+      </BrutText>
+    ) : (
+      children
+    );
+
+  const content = icon ? (
+    isIconOnly ? (
+      icon
+    ) : (
+      <View className="flex-row items-center gap-2">
+        {iconPosition === "left" ? icon : null}
+        {label}
+        {iconPosition === "right" ? icon : null}
+      </View>
+    )
+  ) : (
+    label
+  );
 
   return (
     <Pressable
@@ -100,25 +164,14 @@ export function BrutButton({
       className={cn(
         "items-center justify-center rounded-brutal-sm border-brutal",
         variantClasses[variant],
-        sizeClasses[size],
+        isIconOnly ? iconOnlySizeClasses[size] : sizeClasses[size],
         shadow && !pressed && !disabled && "shadow-brutal",
         disabled && "opacity-50",
         className,
       )}
       {...props}
     >
-      {typeof children === "string" ? (
-        <BrutText
-          size={textSizeMap[size]}
-          weight="semibold"
-          color={textColorMap[variant]}
-          className={textClassName}
-        >
-          {children}
-        </BrutText>
-      ) : (
-        children
-      )}
+      {content}
     </Pressable>
   );
 }
