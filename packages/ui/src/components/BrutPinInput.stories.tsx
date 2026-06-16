@@ -6,6 +6,21 @@ import { BrutText } from "./BrutText";
 const meta = {
   title: "Overlays/PinInput",
   component: BrutPinInput,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "OTP / PIN entry with visible digit cells and a hidden numeric input.",
+      },
+    },
+  },
+  argTypes: {
+    length: { control: { type: "number", min: 4, max: 8 } },
+    secure: { control: "boolean" },
+    disabled: { control: "boolean" },
+    error: { control: "text" },
+  },
   args: {
     value: "",
     onChange: () => {},
