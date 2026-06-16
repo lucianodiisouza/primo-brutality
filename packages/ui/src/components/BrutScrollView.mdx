@@ -1,0 +1,22 @@
+import { Meta, Canvas, Stories } from "@storybook/addon-docs/blocks";
+import * as BrutScrollViewStories from "./BrutScrollView.stories";
+
+<Meta of={BrutScrollViewStories} />
+
+# BrutScrollView
+
+Scrollable region with content padding and keyboard-friendly defaults.
+
+## Usage
+
+```tsx
+import { BrutScrollView } from "@primo-brutality/ui";
+
+<BrutScrollView contentPadding="md" className="flex-1">
+  {items.map((item) => (...))}
+</BrutScrollView>
+```
+
+<Canvas of={BrutScrollViewStories.ScrollableList} />
+
+<Stories />
