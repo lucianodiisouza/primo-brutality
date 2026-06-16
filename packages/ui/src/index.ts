@@ -8,7 +8,6 @@ export * from "./components/Alert";
 export * from "./components/Container";
 export * from "./components/XContainer";
 export * from "./components/YContainer";
-export * from "./components/ScrollView";
 export * from "./components/Modal";
 export * from "./components/PinInput";
 export * from "./components/Toggle";

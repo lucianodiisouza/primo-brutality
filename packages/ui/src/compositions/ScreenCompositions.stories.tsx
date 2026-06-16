@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { Alert } from "../components/Alert";
 import { Badge } from "../components/Badge";
 import { Button } from "../components/Button";
@@ -9,7 +9,6 @@ import { Container } from "../components/Container";
 import { Input } from "../components/Input";
 import { Modal } from "../components/Modal";
 import { PinInput } from "../components/PinInput";
-import { ScrollView } from "../components/ScrollView";
 import { Heading, Text } from "../components/Text";
 import { Toggle } from "../components/Toggle";
 import { XContainer } from "../components/XContainer";
@@ -47,7 +46,10 @@ type Story = StoryObj<typeof meta>;
 
 function PhoneFrame({ children }: { children: ReactNode }) {
   return (
-    <Container padding="none" className="min-h-screen items-center bg-brutal-gray py-8">
+    <Container
+      padding="none"
+      className="min-h-screen items-center bg-brutal-gray py-8"
+    >
       <View className="w-full max-w-[390px] overflow-hidden rounded-brutal-lg border-brutal border-brutal-black bg-brutal-cream shadow-brutal">
         {children}
       </View>
@@ -59,7 +61,11 @@ export const Login: Story = {
   parameters: compositionParameters,
   render: () => (
     <PhoneFrame>
-      <Container maxWidth="full" padding="lg" className="min-h-[640px] justify-center">
+      <Container
+        maxWidth="full"
+        padding="lg"
+        className="min-h-[640px] justify-center"
+      >
         <YContainer gap="lg" fullWidth>
           <YContainer gap="sm">
             <Badge label="Welcome back" variant="pink" />
@@ -76,11 +82,7 @@ export const Login: Story = {
               keyboardType="email-address"
               autoCapitalize="none"
             />
-            <Input
-              label="Password"
-              placeholder="••••••••"
-              secureTextEntry
-            />
+            <Input label="Password" placeholder="••••••••" secureTextEntry />
           </YContainer>
 
           <Alert
@@ -103,7 +105,12 @@ export const Dashboard: Story = {
   parameters: compositionParameters,
   render: () => (
     <PhoneFrame>
-      <ScrollView contentPadding="lg" className="min-h-[720px]">
+      <ScrollView
+        className="min-h-[720px] flex-1"
+        contentContainerClassName="grow p-6"
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
         <YContainer gap="lg" fullWidth>
           <XContainer justify="between" align="start" fullWidth>
             <YContainer gap="xs" className="flex-1">
@@ -187,7 +194,12 @@ export const Settings: Story = {
 
     return (
       <PhoneFrame>
-        <ScrollView contentPadding="lg" className="min-h-[720px]">
+        <ScrollView
+          className="min-h-[720px] flex-1"
+          contentContainerClassName="grow p-6"
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
           <YContainer gap="lg" fullWidth>
             <YContainer gap="sm">
               <Heading level={2}>Settings</Heading>
@@ -302,7 +314,12 @@ function CheckoutScreen() {
 
   return (
     <PhoneFrame>
-      <ScrollView contentPadding="lg" className="min-h-[720px]">
+      <ScrollView
+        className="min-h-[720px] flex-1"
+        contentContainerClassName="grow p-6"
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
         <YContainer gap="lg" fullWidth>
           <YContainer gap="sm">
             <Heading level={2}>Checkout</Heading>
@@ -346,10 +363,7 @@ function CheckoutScreen() {
             </XContainer>
           </Card>
 
-          <Button
-            size="lg"
-            onPress={() => setConfirmOpen(true)}
-          >
+          <Button size="lg" onPress={() => setConfirmOpen(true)}>
             Place order
           </Button>
         </YContainer>
@@ -361,10 +375,7 @@ function CheckoutScreen() {
         title="Confirm order"
         footer={
           <XContainer gap="md">
-            <Button
-              variant="secondary"
-              onPress={() => setConfirmOpen(false)}
-            >
+            <Button variant="secondary" onPress={() => setConfirmOpen(false)}>
               Cancel
             </Button>
             <Button
@@ -383,7 +394,8 @@ function CheckoutScreen() {
         }
       >
         <Text color="muted">
-          Your card ending in 4242 will be charged. This action cannot be undone.
+          Your card ending in 4242 will be charged. This action cannot be
+          undone.
         </Text>
       </Modal>
     </PhoneFrame>

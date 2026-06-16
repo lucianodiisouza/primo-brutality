@@ -14,11 +14,11 @@ yarn add @primo-brutality/ui nativewind
 
 ### Peer dependencies
 
-| Package        | Version   |
-| -------------- | --------- |
-| `react`        | `>=18`    |
-| `react-native` | `>=0.74`  |
-| `nativewind`   | `>=4`     |
+| Package        | Version  |
+| -------------- | -------- |
+| `react`        | `>=18`   |
+| `react-native` | `>=0.74` |
+| `nativewind`   | `>=4`    |
 
 You also need **Tailwind CSS v3** in your app (see setup below).
 
@@ -153,29 +153,34 @@ function Screen() {
 
 ## Components
 
-| Component          | Description                                      |
-| ------------------ | ------------------------------------------------ |
-| `Text`         | Typography with size, weight, and color presets  |
-| `Button`       | Pressable button with variants and hard shadow   |
-| `Input`        | Text input with brutal border styling            |
-| `Card`         | Bordered container with optional shadow          |
-| `Badge`        | Small label / status chip                        |
-| `Alert`        | Inline alert banner                              |
-| `Container`    | Layout wrapper with max-width presets            |
-| `YContainer`   | Vertical stack with token-based gap presets      |
-| `XContainer`   | Horizontal row with token-based gap presets      |
-| `ScrollView`   | Scrollable container with brutal styling         |
-| `Modal`        | Modal dialog overlay                             |
-| `PinInput`     | PIN / OTP digit input                            |
-| `ToastProvider`| Toast context provider                           |
-| `useToast`         | Hook to show and dismiss toasts                  |
+| Component       | Description                                     |
+| --------------- | ----------------------------------------------- |
+| `Text`          | Typography with size, weight, and color presets |
+| `Button`        | Pressable button with variants and hard shadow  |
+| `Input`         | Text input with brutal border styling           |
+| `Card`          | Bordered container with optional shadow         |
+| `Badge`         | Small label / status chip                       |
+| `Alert`         | Inline alert banner                             |
+| `Container`     | Layout wrapper with max-width presets           |
+| `YContainer`    | Vertical stack with token-based gap presets     |
+| `XContainer`    | Horizontal row with token-based gap presets     |
+| `Modal`         | Modal dialog overlay                            |
+| `PinInput`      | PIN / OTP digit input                           |
+| `ToastProvider` | Toast context provider                          |
+| `useToast`      | Hook to show and dismiss toasts                 |
 
 ## Design tokens
 
 Import raw token values for custom components:
 
 ```tsx
-import { colors, spacing, fontSizes, radii, shadows } from "@primo-brutality/ui";
+import {
+  colors,
+  spacing,
+  fontSizes,
+  radii,
+  shadows,
+} from "@primo-brutality/ui";
 ```
 
 ## Development
